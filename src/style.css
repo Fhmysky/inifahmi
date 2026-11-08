@@ -628,7 +628,7 @@ section h2 {
   align-items: center;
   justify-content: center;
 
-  border-radius: 40%;
+  border-radius: 60%;
   overflow: hidden;
 }
 
@@ -664,6 +664,7 @@ section h2 {
   font-size: 14px;
   font-weight: 700;
 }
+
 
 /* =====================================================
    PORTFOLIO SECTION
