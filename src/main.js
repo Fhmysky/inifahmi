@@ -134,16 +134,22 @@ window.showTab = function(tabId, button) {
 };
 
 function loadWeb3FormsCaptcha() {
-  if (!document.getElementById("contact-form")) return;
+  const form = document.getElementById("contact-form");
 
-  if (document.querySelector(
-    'script[data-web3forms="loaded"]'
-  )) return;
+  if (!form) return;
+
+  // Hapus script lama agar dapat dijalankan ulang
+  // ketika halaman Home dirender kembali.
+  document
+    .querySelectorAll('script[data-web3forms-captcha]')
+    .forEach(script => script.remove());
 
   const script = document.createElement("script");
+
   script.src = "https://web3forms.com/client/script.js";
   script.async = true;
-  script.dataset.web3forms = "loaded";
+  script.defer = true;
+  script.dataset.web3formsCaptcha = "true";
 
   document.body.appendChild(script);
 }
@@ -153,9 +159,12 @@ function render() {
   const page = pages[route];
 
   document.title = page.title;
+
   document.getElementById("app").innerHTML = page.html;
 
   initPage();
+
+  // Jalankan CAPTCHA setelah formulir tersedia.
   loadWeb3FormsCaptcha();
 }
 
