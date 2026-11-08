@@ -133,12 +133,30 @@ window.showTab = function(tabId, button) {
   button?.classList.add("active");
 };
 
+function loadWeb3FormsCaptcha() {
+  if (!document.getElementById("contact-form")) return;
+
+  if (document.querySelector(
+    'script[data-web3forms="loaded"]'
+  )) return;
+
+  const script = document.createElement("script");
+  script.src = "https://web3forms.com/client/script.js";
+  script.async = true;
+  script.dataset.web3forms = "loaded";
+
+  document.body.appendChild(script);
+}
+
 function render() {
   const route = currentRoute();
   const page = pages[route];
+
   document.title = page.title;
   document.getElementById("app").innerHTML = page.html;
+
   initPage();
+  loadWeb3FormsCaptcha();
 }
 
 document.addEventListener("click", (event) => {
