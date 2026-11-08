@@ -1146,17 +1146,42 @@ section h2 {
 
 .skill-card i {
   font-size: 85px;
+  margin-bottom: 15px;
 
+  background: linear-gradient(180deg, #60a5fa, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.65));
+
+  animation: pulseIcon 3s ease infinite;
+}
+
+/* Gambar Ultralytics */
+.skill-logo {
+  width: 85px;
+  height: 85px;
   margin-bottom: 15px;
 
   background: linear-gradient(180deg, #60a5fa, #38bdf8);
 
-  -webkit-background-clip: text;
+  -webkit-mask-image: url("../images/skill-logo.png");
+  mask-image: url("../images/skill-logo.png");
 
-  -webkit-text-fill-color: transparent;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  -webkit-mask-size: contain;
+  mask-size: contain;
+
+  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.65));
 
   animation: pulseIcon 3s ease infinite;
 }
+
 
 /* =====================================================
    SKILL TITLE
